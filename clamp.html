@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="clamp.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="parent">
+    <p id="parent-text"></p>
+    <div id="child">
+      <p id="child-text"></p>
+    </div>
+  </div>
+  <script>
+    const child_resize_ob = new ResizeObserver(function(entries) {
+      var parent_width = document.getElementById("parent").getBoundingClientRect().width
+      document.getElementById("parent-text").innerHTML = ".parent width: " + Math.round(parent_width)  + " px";
+    });
+    child_resize_ob.observe(document.querySelector("#parent"));
+
+    const parent_resize_ob = new ResizeObserver(function(entries) {
+      var child_width = document.getElementById("child").getBoundingClientRect().width
+      document.getElementById("child-text").innerHTML = ".child width: " + Math.round(child_width) + " px";
+    });
+    parent_resize_ob.observe(document.querySelector("#parent"));
+  </script>
+</body>
+</html>

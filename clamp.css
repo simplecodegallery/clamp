@@ -1,0 +1,22 @@
+body{
+  background-color: #1953aa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#parent{
+  height: 140px;
+  width: 400px;
+  resize: horizontal;
+  overflow: auto;
+  font: 12px verdana;
+  border-style: solid;
+}
+
+#child{
+  background-color: #d6a800;
+  font: 12px verdana;
+  height: 80px;
+  margin: 5px;
+  width: clamp(150px, 50%, 300px);
+}
